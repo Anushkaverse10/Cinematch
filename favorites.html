@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorites</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>❤️ Your Favorites</h1>
+
+    <div id="favorites"></div>
+
+    <button onclick="goBack()">⬅ Back</button>
+</div>
+
+<script>
+function loadFavorites() {
+    const favs = JSON.parse(localStorage.getItem("favorites")) || [];
+    const container = document.getElementById("favorites");
+
+    if (favs.length === 0) {
+        container.innerHTML = "No favorites yet 😢";
+        return;
+    }
+
+    favs.forEach(movie => {
+        const div = document.createElement("div");
+        div.classList.add("movie");
+
+        div.innerHTML = `
+            <img src="https://image.tmdb.org/t/p/w300${movie.poster_path}" />
+            <h3>${movie.title}</h3>
+            <p>⭐ ${movie.vote_average}</p>
+        `;
+
+        container.appendChild(div);
+    });
+}
+
+function goBack() {
+    window.location.href = "index.html";
+}
+
+loadFavorites();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CineMatch 🎬</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🎬 Movie Recommender</h1>
+
+    <div id="hero"></div>
+
+<h2>🔥 Trending Now</h2>
+<div id="trending"></div>
+
+    <div class="controls">
+          
+        <button onclick="window.location.href='favorites.html'">❤️ Favorites</button>
+
+        <p>Select a genre:</p>
+         
+        <select id="genre">
+            <option value="28">Action</option>
+            <option value="35">Comedy</option>
+            <option value="18">Drama</option>
+            <option value="27">Horror</option>
+            <option value="10749">Romance</option>
+            <option value="878">Sci-Fi</option>
+            <option value="53">Thriller</option>
+            <option value="16">Animation</option>
+            <option value="80">Crime</option>
+            <option value="14">Fantasy</option>
+            <option value="9648">Mystery</option>
+            <option value="36">History</option>
+        </select>
+
+        <select id="language">
+            <option value="">All Languages</option>
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="bn">Bengali</option>
+            <option value="ta">Tamil</option>
+            <option value="te">Telugu</option>
+            <option value="kn">Kannada</option>
+            <option value="mr">Marathi</option>
+            <option value="ur">Urdu</option>
+            <option value="pa">Punjabi</option>
+            <option value="or">Odia</option>
+            <option value="as">Assamese</option>
+            <option value="ko">Korean</option>
+            <option value="ja">Japanese</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+        </select>
+
+        <input type="text" id="search" placeholder="Search movie..." />
+
+        <button onclick="searchMovie()">Search</button>
+        <button onclick="getMovies()">Suggest Movies</button>
+        <button onclick="getUnderrated()">🔥 Hidden Gems</button>
+
+    </div>
+
+    <div id="movies"></div>
+
+    <button id="topBtn" onclick="scrollToTop()">⬆</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

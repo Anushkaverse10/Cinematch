@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    background-color: #141414;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #e50914;
+}
+
+/* Controls */
+select, input, button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    background-color: #e50914;
+    color: white;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #b20710;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Movie grid */
+#movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* Movie card */
+.movie {
+    background-color: #1f1f1f;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.movie img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.movie:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px red;
+}
+
+.movie p {
+    font-size: 12px;
+}
+
+/* Scroll button */
+#topBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+/* 📱 Mobile responsiveness */
+@media (max-width: 600px) {
+    .controls {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+#hero {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+}
+
+.hero-content {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#trending {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+}
+
+#trending img {
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+#trending img:hover {
+    transform: scale(1.1);
+}
