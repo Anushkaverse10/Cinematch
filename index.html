@@ -19,11 +19,12 @@
           
         <button onclick="window.location.href='favorites.html'">❤️ Favorites</button>
 
-        <p>Select a genre:</p>
+        <p>Select your genre:</p>
          
         <select id="genre">
             <option value="28">Action</option>
             <option value="35">Comedy</option>
+            <option value="53">Mind-Bending 🧠</option>
             <option value="18">Drama</option>
             <option value="27">Horror</option>
             <option value="10749">Romance</option>
@@ -54,12 +55,18 @@
             <option value="es">Spanish</option>
             <option value="fr">French</option>
         </select>
-
         <input type="text" id="search" placeholder="Search movie..." />
 
         <button onclick="searchMovie()">Search</button>
+        <br>
         <button onclick="getMovies()">Suggest Movies</button>
-        <button onclick="getUnderrated()">🔥 Hidden Gems</button>
+        <button onclick="getUnderrated()">🔥 underrated Gems</button>
+        <button onclick="getUpcoming()">⏳ Upcoming</button>
+        <br>
+        <button onclick="getTopRated()">⭐ blockblusters</button>
+        <button onclick="getSimilar()">🔍 Similar Movies</button>
+        <button onclick="getNowPlaying()">🎥 on theatres</button>
+        
 
     </div>
 
