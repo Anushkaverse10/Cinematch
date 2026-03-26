@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Favorites</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorites ❤️</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <div class="container">
     <h1>❤️ Favorites</h1>
+    <button onclick="window.location.href='index.html'">← Back</button>
     <div id="favorites"></div>
 </div>
 
@@ -16,29 +19,44 @@ function load() {
     const fav = JSON.parse(localStorage.getItem("favorites")) || [];
     const div = document.getElementById("favorites");
 
+    if (!fav.length) {
+        div.innerHTML = "<p style='color:#aaa;margin-top:30px'>No favorites yet. Go add some! 🎬</p>";
+        return;
+    }
+
     fav.forEach(m => {
         const el = document.createElement("div");
         el.classList.add("movie");
 
+        const imdbURL = `https://www.imdb.com/title/${m.imdbID}/`;
+        const trailerURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(m.Title + " " + (m.Year || "") + " official trailer")}`;
+
         el.innerHTML = `
-            <img src="https://image.tmdb.org/t/p/w300${m.poster_path}">
-            <h3>${m.title}</h3>
-            <button onclick="remove(${m.id})">❌</button>
+            <img src="${m.Poster}" alt="${m.Title}"
+                 onerror="this.src='https://placehold.co/300x445/1f1f1f/aaa?text=No+Image'" />
+            <h3>${m.Title}</h3>
+            <p class="year">📅 ${m.Year || "N/A"}</p>
+            ${m.imdbRating && m.imdbRating !== "N/A" ? `<div class="badges"><span class="badge imdb">⭐ ${m.imdbRating}</span></div>` : ""}
+            ${m.Genre && m.Genre !== "N/A" ? `<p class="info">🎭 ${m.Genre}</p>` : ""}
+            <div class="btn-row">
+                <a href="${trailerURL}" target="_blank"><button>▶ Trailer</button></a>
+                <a href="${imdbURL}" target="_blank"><button class="imdb-btn">IMDb</button></a>
+                <button onclick="remove('${m.imdbID}')">🗑 Remove</button>
+            </div>
         `;
 
         div.appendChild(el);
     });
 }
 
-function remove(id) {
-    let fav = JSON.parse(localStorage.getItem("favorites"));
-    fav = fav.filter(m => m.id !== id);
+function remove(imdbID) {
+    let fav = JSON.parse(localStorage.getItem("favorites")) || [];
+    fav = fav.filter(m => m.imdbID !== imdbID);
     localStorage.setItem("favorites", JSON.stringify(fav));
     location.reload();
 }
 
 load();
 </script>
-
 </body>
 </html>
