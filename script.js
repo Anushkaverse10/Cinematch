@@ -34,7 +34,9 @@ function getUpcoming() {
 }
 
 function getBlockbusters() {
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc`)
+    document.getElementById("movies").innerHTML = "Loading blockbusters 🍿";
+
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&vote_count.gte=1000`)
         .then(res => res.json())
         .then(data => displayMovies(data.results));
 }
@@ -123,35 +125,56 @@ function getPlatform(movieId) {
                 const platforms = data.results.IN.flatrate.map(p => p.provider_name);
 
                 const logos = {
-                    "Netflix": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
-                    "Amazon Prime Video": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png",
-                    "Disney Plus": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg",
-                    "Hulu": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Hulu_Logo.svg",
-                    "SonylLIV": "https://upload.wikimedia.org/wikipedia/en/0/0e/SonyLIV_logo.png",
-                    "Zee5": "https://upload.wikimedia.org/wikipedia/en/8/8e/ZEE5_logo.png",
-                    "Hotstar": "https://upload.wikimedia.org/wikipedia/en/1/1b/Disney%2B_Hotstar_logo.svg",
-                    "Voot": "https://upload.wikimedia.org/wikipedia/en/4/4e/Voot_logo.png",
-                    "MX Player": "https://upload.wikimedia.org/wikipedia/en/5/5e/MX_Player_logo.png",
-                    "Sony Crackle": "https://upload.wikimedia.org/wikipedia/en/0/0e/SonyLIV_logo.png",
-                    "Apple TV Plus": "https://upload.wikimedia.org/wikipedia/en/1/1b/Apple_TV_Plus_logo.svg",
-                    "HBO Max": "https://upload.wikimedia.org/wikipedia/en/1/1b/HBO_Max_Logo.svg",
-                    "Peacock": "https://upload.wikimedia.org/wikipedia/en/1/1b/Peacock_Logo.svg",
-                    "Paramount Plus": "https://upload.wikimedia.org/wikipedia/en/1/1b/Paramount_Plus_logo.svg",
-                    "Starz": "https://upload.wikimedia.org/wikipedia/en/1/1b/Starz_logo.svg",
-                    "Hoichoi": "https://upload.wikimedia.org/wikipedia/en/1/1b/Hoichoi_logo.png",
-                };
+    "Netflix": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
 
-                let html = "📺 ";
+    "Amazon Prime Video": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png",
 
-                platforms.forEach(p => {
-                    if (logos[p]) {
-                        html += `<img src="${logos[p]}" width="40" style="margin:5px;">`;
-                    } else {
-                        html += `<span>${p}</span>`;
-                    }
-                });
+    "Disney+": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg",
+    "Disney Plus": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg",
 
-                platformText.innerHTML = html;
+    "JioHotstar": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Disney%2B_Hotstar_logo.svg",
+    "Hotstar": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Disney%2B_Hotstar_logo.svg",
+
+    "SonyLIV": "https://upload.wikimedia.org/wikipedia/en/0/0e/SonyLIV_logo.png",
+
+    "ZEE5": "https://upload.wikimedia.org/wikipedia/en/8/8e/ZEE5_logo.png",
+    "Zee5": "https://upload.wikimedia.org/wikipedia/en/8/8e/ZEE5_logo.png",
+
+    "Voot": "https://upload.wikimedia.org/wikipedia/en/4/4e/Voot_logo.png",
+
+    "MX Player": "https://upload.wikimedia.org/wikipedia/en/5/5e/MX_Player_logo.png",
+
+    "Apple TV+": "https://upload.wikimedia.org/wikipedia/en/1/1b/Apple_TV_Plus_logo.svg",
+    "Apple TV Plus": "https://upload.wikimedia.org/wikipedia/en/1/1b/Apple_TV_Plus_logo.svg",
+
+    "HBO Max": "https://upload.wikimedia.org/wikipedia/en/1/1b/HBO_Max_Logo.svg",
+
+    "Hulu": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Hulu_Logo.svg",
+
+    "Peacock": "https://upload.wikimedia.org/wikipedia/en/1/1b/Peacock_Logo.svg",
+
+    "Paramount+": "https://upload.wikimedia.org/wikipedia/en/1/1b/Paramount_Plus_logo.svg",
+    "Paramount Plus": "https://upload.wikimedia.org/wikipedia/en/1/1b/Paramount_Plus_logo.svg",
+
+    "Starz": "https://upload.wikimedia.org/wikipedia/en/1/1b/Starz_logo.svg",
+
+    "Hoichoi": "https://upload.wikimedia.org/wikipedia/en/1/1b/Hoichoi_logo.png"
+};
+
+                let logoHTML = "";
+let nameHTML = "";
+
+platforms.forEach(p => {
+    if (logos[p]) {
+        logoHTML += `<img src="${logos[p]}" class="ott-logo">`;
+    }
+    nameHTML += `<span class="ott-name">${p}</span>`;
+});
+
+platformText.innerHTML = `
+    <div class="ott-logos">${logoHTML}</div>
+    <div class="ott-names">${nameHTML}</div>
+`;
             } else {
                 platformText.innerHTML = "❌ Not available on major platforms";
             }
