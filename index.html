@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Movie Recommender 🎬</title>
+    <title>CineMatch 🎬</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,15 +12,15 @@
 
     <div id="hero"></div>
 
-<h2>🔥 Trending Now</h2>
-<div id="trending"></div>
+    <h2>🔥 Trending Now</h2>
+    <div id="trending"></div>
 
     <div class="controls">
-          
+
         <button onclick="window.location.href='favorites.html'">❤️ Favorites</button>
 
         <p>Select your genre:</p>
-         
+
         <select id="genre">
             <option value="28">Action</option>
             <option value="35">Comedy</option>
@@ -29,12 +29,10 @@
             <option value="27">Horror</option>
             <option value="10749">Romance</option>
             <option value="878">Sci-Fi</option>
-            <option value="53">Thriller</option>
             <option value="16">Animation</option>
             <option value="80">Crime</option>
             <option value="14">Fantasy</option>
             <option value="9648">Mystery</option>
-            <option value="36">History</option>
         </select>
 
         <select id="language">
@@ -55,27 +53,35 @@
             <option value="es">Spanish</option>
             <option value="fr">French</option>
         </select>
+
         <input type="text" id="search" placeholder="Search movie..." />
 
         <button onclick="searchMovie()">Search</button>
+
         <br>
-        <button onclick="getMovies()">Suggest Movies</button>
-        <button onclick="getUnderrated()">🔥 underrated Gems</button>
+
+        <button onclick="getMovies()">🎬 Suggest Movies</button>
+        <button onclick="getUnderrated()">💎 Underrated Gems</button>
         <button onclick="getUpcoming()">⏳ Upcoming</button>
+
         <br>
-        <button onclick="getBlockbusters()">⭐ blockblusters</button>
-        <button onclick="getSimilar()">🔍 Similar Movies</button>
-        <button onclick="getInTheatres()">🎬 in Theatres</button>
-        
+
+        <button onclick="getBlockbusters()">⭐ Blockbusters</button>
+        <button onclick="getSimilar()">🔍 Similar</button>
+        <button onclick="getInTheatres()">🎟 In Theatres</button>
 
     </div>
 
     <div id="movies"></div>
 
-    <button id="topBtn" onclick="scrollToTop()">⬆</button>
-
 </div>
 
+<div id="trailerModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeTrailer()">❌</span>
+        <iframe id="trailerFrame" width="100%" height="350" allowfullscreen></iframe>
+    </div>
+</div>
 <script src="script.js"></script>
 
 </body>
