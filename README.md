@@ -3,8 +3,11 @@
 A movie discovery app powered entirely by the **OMDB API**  
 ## ⚡ Setup
 
-- 🌐 Live Demo
+🌐 Live Demo
 https://anushkaverse10.github.io/Cinematch-V1/
+
+📂 GitHub Repository
+👉 https://github.com/Anushkaverse10/Cinematch
 
 1. Get a **free OMDB API key** at https://www.omdbapi.com/apikey.aspx
 2. Open `script.js` and replace the key on line 3:
