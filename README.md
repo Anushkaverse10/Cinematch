@@ -10,9 +10,6 @@ https://anushkaverse10.github.io/Cinematch-V1/
 👉 https://github.com/Anushkaverse10/Cinematch
 
 1. Get a **free OMDB API key** at https://www.omdbapi.com/apikey.aspx
-2. Open `script.js` and replace the key on line 3:
-   ```js
-   const OMDB_KEY = "your_key_here";
    ```
 3. Open `index.html` in your browser — done!
 
