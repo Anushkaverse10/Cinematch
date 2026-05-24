@@ -1,28 +1,28 @@
-# 🎬 CineMatch — OMDB Edition
+#  CineMatch — OMDB Edition
 
 A movie discovery app powered entirely by the **OMDB API**  
-## ⚡ Setup
+##  Setup
 
-# 🌐 Live Demo
+# Live Demo
 https://anushkaverse10.github.io/Cinematch-V1/
 
-# 📂 GitHub Repository
-👉 https://github.com/Anushkaverse10/Cinematch
+# GitHub Repository
+https://github.com/Anushkaverse10/Cinematch
 
 1. Get a **free OMDB API key** at https://www.omdbapi.com/apikey.aspx
    ```
 > The free OMDB plan allows **1,000 requests/day**.
 
-## ✨ Features
+## Features
 
-- 🎬 Browse by Genre (Action, Comedy, Drama, Horror, Sci-Fi, Romance, Thriller, Animation, Hindi & more)
-- ⭐ Blockbusters, 💎 Underrated Gems, ⏳ Upcoming, 🎟 In Theatres
-- 🔍 Search any movie by title
+-  Browse by Genre (Action, Comedy, Drama, Horror, Sci-Fi, Romance, Thriller, Animation, Hindi & more)
+- Blockbusters,  Underrated Gems,  Upcoming, In Theatres
+- Search any movie by title
 - **IMDb, Rotten Tomatoes & Metacritic ratings** on every card
 - Director, Runtime, Genre, Language, Awards info
-- ▶ Trailer button (opens YouTube search)
+- Trailer button (opens YouTube search)
 - IMDb direct link on every card
-- ❤️ Favorites — save & remove movies (stored in localStorage)
+- Favorites — save & remove movies (stored in localStorage)
 
 ## 🛠 APIs Used
 
@@ -32,7 +32,7 @@ https://anushkaverse10.github.io/Cinematch-V1/
 | YouTube Search | Trailer links (no API key needed) |
 | IMDb | Direct movie page links |
 
-## 📁 Files
+## Files
 
 - `index.html` — Main page
 - `favorites.html` — Saved movies
